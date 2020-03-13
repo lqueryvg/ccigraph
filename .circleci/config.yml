@@ -1,0 +1,19 @@
+# This is not a valid circleci config file.
+# It's just here for testing.
+version: 2.1
+workflows:
+  non_master_branch_build:
+    jobs:
+      - build:
+          filters:
+            branches:
+              ignore:
+                - master
+
+      - lint:
+          requires:
+            - build
+
+      - test:
+          requires:
+            - lint
