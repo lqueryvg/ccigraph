@@ -2,7 +2,7 @@
 
 ![Lint](https://github.com/lqueryvg/ccigraph/workflows/Lint/badge.svg)
 
-`ccigraph` is a CLI tool to help create sgraph (think "diagrams") of your CircleCI workflows.
+`ccigraph` is a CLI tool to help creates graph (think "diagrams") of your CircleCI workflows.
 
 Suitable for viewing in https://dreampuf.github.io/GraphvizOnline.
 
@@ -41,8 +41,8 @@ $ ccigraph draw -w build_test_deploy
 https://dreampuf.github.io/GraphvizOnline/#digraph%20G%20%7B%0A%20%20non_master_branch_build%20-%3E%20build%3B%0A%20%20build%20-%3E%20lint%3B%0A%20%20lint%20-%3E%20test%3B%0A%7D
 ```
 
-If using a terminal tool which recognises URL links,
-you should be able to click the link to open it up in a browser tab.
+If you are using a terminal tool which supports URL links,
+you can click the link to open a browser tab.
 
 For example `Cmd` click on the URL on Mac in iTerm2.
 
