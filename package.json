@@ -1,5 +1,12 @@
 {
   "name": "ccigraph",
+  "keywords": [
+    "cli",
+    "circleci",
+    "draw",
+    "diagram",
+    "workflow"
+  ],
   "version": "0.1.0",
   "main": "src/index.js",
   "license": "MIT",
@@ -24,5 +31,14 @@
   },
   "bin": {
     "ccigraph": "./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/lqueryvg/ccigraph.git"
+  },
+  "homepage": "https://github.com/lqueryvg/ccigraph",
+  "author": {
+    "name": "John Buxton",
+    "email": "john.buxton2@gmail.com"
   }
 }
