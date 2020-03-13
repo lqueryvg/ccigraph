@@ -1,6 +1,6 @@
 # ccigraph
 
-![Build Status](https://github.com/lqueryvg/cgigraph/workflows/Lint/badge.svg)
+![Lint](https://github.com/lqueryvg/ccigraph/workflows/Lint/badge.svg)
 
 `ccigraph` is a CLI tool to help create sgraph (think "diagrams") of your CircleCI workflows.
 
