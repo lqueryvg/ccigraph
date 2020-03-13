@@ -2,9 +2,9 @@
 
 ![Lint](https://github.com/lqueryvg/ccigraph/workflows/Lint/badge.svg)
 
-`ccigraph` is a CLI tool to help creates graph (think "diagrams") of your CircleCI workflows.
+Create CircleCI workflow diagrams from the CLI.
 
-Suitable for viewing in https://dreampuf.github.io/GraphvizOnline.
+The diagrams can be viewed here: https://dreampuf.github.io/GraphvizOnline.
 
 ## Usage
 
@@ -26,7 +26,9 @@ Long Names:
 
 ## Example
 
-First, list the workflow names in your CircleCI config file:
+Imagine you are in the root of your project and
+you have a `.circleci/config.yml` which contains
+two workflows. You can list them as follows:
 
 ```
 $ ccigraph list
@@ -34,17 +36,19 @@ non_master_branch_build
 build_test_deploy
 ```
 
-Next, create a link to the graph:
+Create a diagram of the `non_master_branch_build` workflow as follows:
 
 ```
-$ ccigraph draw -w build_test_deploy
+$ ccigraph draw -w non_master_branch_build
 https://dreampuf.github.io/GraphvizOnline/#digraph%20G%20%7B%0A%20%20non_master_branch_build%20-%3E%20build%3B%0A%20%20build%20-%3E%20lint%3B%0A%20%20lint%20-%3E%20test%3B%0A%7D
 ```
 
-If you are using a terminal tool which supports URL links,
+The output is a link to the diagram.
+
+Tip: If you are using a terminal tool which supports URL links,
 you can click the link to open a browser tab.
 
-For example `Cmd` click on the URL on Mac in iTerm2.
+For example `Cmd`-`click` on the URL on Mac in iTerm2.
 
 You should see something like this in a new browser tab:
 
@@ -52,7 +56,7 @@ You should see something like this in a new browser tab:
 
 ## Bugs / Caveats
 
-If your CircleCI config file is invalid, don't expect great results from this tool.
+If your CircleCI config file is invalid, don't be shocked if this tool fails.
 
 Consider validating the CircleCI config first using the [CircleCI CLI](https://circleci.com/docs/2.0/local-cli/)
 

@@ -1,5 +1,6 @@
 /* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
+const dedent = require("dedent");
 
 module.exports.runCommand = (cliArgs, workflows) => {
   const workflowObject = workflows[cliArgs.workflow];
@@ -22,23 +23,29 @@ module.exports.runCommand = (cliArgs, workflows) => {
     output.push(string);
   };
 
-  appendOutput(" G {");
+  appendOutput(` G {`);
+  appendOutput(
+    // eslint-disable-next-line prefer-template
+    "  " +
+      dedent(`
+        ${cliArgs.workflow} [
+            style="filled"
+            fillcolor="#42c88a"
+          ]`)
+  );
 
   const jobsFound = [];
-  // console.log(`jobs = ${JSON.stringify(jobs)}`);
 
   for (const jobIndex in jobs) {
     let job = jobs[jobIndex];
 
-    // normalise the job to be an object with a single attribute like this
+    // normalise the job to be an object with a single attribute whose key is the job name
     // { "job_name": { ... } }
     if (typeof job === "string") {
       const jobName = job;
       job = {};
       job[jobName] = {};
     }
-
-    // console.log(`job = ${JSON.stringify(job)}`);
 
     for (let jobName in job) {
       // there can be only one - Highlander :-)
@@ -61,14 +68,8 @@ module.exports.runCommand = (cliArgs, workflows) => {
 
       addJobIfNew(jobName);
 
-      // console.log(`jobName = ${JSON.stringify(jobName)}`);
-      // console.log(`jobsFound = ${JSON.stringify(jobsFound)}`);
-      // console.log(`jobContents = ${JSON.stringify(jobContents)}`);
-
       const { requires } = jobContents;
       if (requires) {
-        // console.log(`requires = ${JSON.stringify(requires)}`);
-
         for (const requirementIndex in requires) {
           const requirement = requires[requirementIndex];
           if (!jobExists(requirement)) {
