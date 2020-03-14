@@ -6,6 +6,8 @@ Create CircleCI workflow diagrams from the CLI.
 
 The diagrams can be viewed here: https://dreampuf.github.io/GraphvizOnline.
 
+[![demo](https://asciinema.org/a/310243.svg)](https://asciinema.org/a/310243?speed=2&autoplay=1)
+
 ## Usage
 
 This package is meant to be used as a command-line tool.
