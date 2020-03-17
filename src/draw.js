@@ -39,7 +39,8 @@ module.exports.runCommand = (cliArgs, workflows) => {
   for (const jobIndex in jobs) {
     let job = jobs[jobIndex];
 
-    // normalise the job to be an object with a single attribute whose key is the job name
+    // normalise the job to be an object with a single attribute
+    // whose key is the job name, example
     // { "job_name": { ... } }
     if (typeof job === "string") {
       const jobName = job;

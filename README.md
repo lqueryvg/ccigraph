@@ -1,12 +1,18 @@
 # ccigraph
 
-![Lint](https://github.com/lqueryvg/ccigraph/workflows/Lint/badge.svg)
+![Lint](https://github.com/lqueryvg/ccigraph/workflows/Test/badge.svg)
+[![npm version](https://badge.fury.io/js/ccigraph.svg)](//npmjs.com/package/ccigraph)
 
 Create CircleCI workflow diagrams from the CLI.
 
 The diagrams can be viewed here: https://dreampuf.github.io/GraphvizOnline.
 
 [![demo](https://asciinema.org/a/310243.svg)](https://asciinema.org/a/310243?speed=2&autoplay=1)
+
+
+## Prerequisites
+
+Node.js 10.x or higher.
 
 ## Usage
 
