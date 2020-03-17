@@ -2,18 +2,29 @@
 # It's just here for testing.
 version: 2.1
 workflows:
-  non_master_branch_build:
+  good_workflow:
     jobs:
       - build:
           filters:
             branches:
               ignore:
                 - master
-
       - lint:
+          name: lint
           requires:
             - build
-
       - test:
+          type: approval
           requires:
             - lint
+      - test2:
+          requires:
+            - test
+      - top_level_job
+
+  broken_workflow:
+    jobs:
+      - build
+      - lint:
+          requires:
+            - does_not_exist

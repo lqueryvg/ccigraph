@@ -1,9 +1,11 @@
-const minimist = require("minimist");
-const dedent = require("dedent");
+import minimist from "minimist";
+import dedent from "dedent";
+
+/* istanbul ignore file */
 
 const DEFAULT_CIRCLECI_FILE = ".circleci/config.yml";
 
-const usageAndExit = () => {
+const usageAndExit = (): never => {
   const basename = path => {
     return path.replace(/.*\//, "");
   };
@@ -27,7 +29,7 @@ const usageAndExit = () => {
   process.exit(1);
 };
 
-const parse = () => {
+const invokeMinimist = (): minimist.ParsedArgs => {
   const validCommands = ["list", "draw"];
   let command;
   const parsedArgs = minimist(process.argv.slice(2), {
@@ -51,7 +53,7 @@ const parse = () => {
   return parsedArgs;
 };
 
-const validate = parsedArgs => {
+const validate = (parsedArgs: minimist.ParsedArgs): minimist.ParsedArgs => {
   // eslint-disable-next-line no-param-reassign
   [parsedArgs.command] = parsedArgs._;
 
@@ -72,10 +74,11 @@ const validate = parsedArgs => {
   return parsedArgs;
 };
 
-module.exports.parseCommandLine = () => {
-  const parsedArgs = parse();
+const parseCommandLine = (): minimist.ParsedArgs => {
+  const parsedArgs = invokeMinimist();
   validate(parsedArgs);
 
-  // console.log(parsedArgs);
   return parsedArgs;
 };
+
+export default parseCommandLine;
