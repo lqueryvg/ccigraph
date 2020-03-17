@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 
-const file = require("./file");
-const cli = require("./cli");
-const list = require("./list");
-const draw = require("./draw");
+/* istanbul ignore file */
+
+import file from "./file";
+import cli from "./cli";
+import list from "./list";
+import draw from "./draw";
 
 const main = () => {
   const cliArgs = cli.parseCommandLine();
@@ -13,6 +15,11 @@ const main = () => {
   }
   draw.runCommand(cliArgs, workflows);
 };
+
+if (require.main !== module) {
+  // caller is trying to require / import this module
+  throw new Error("ccigraph is not a library");
+}
 
 try {
   main();

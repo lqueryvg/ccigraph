@@ -1,4 +1,4 @@
-name: Lint
+name: Test
 
 on: [push]
 
@@ -7,8 +7,9 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
+      fail-fast: false      
       matrix:
-        node-version: [8.x, 10.x, 12.x]
+        node-version: [10.x, 12.x]
 
     steps:
       - uses: actions/checkout@v1
@@ -16,7 +17,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: yarn lint
+      - name: yarn lint and test
         run: |
           yarn
           yarn lint
+          yarn test
