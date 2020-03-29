@@ -1,0 +1,29 @@
+/*
+HOW TO INTEGRATE FORMATING AND LINTING IN VSCODE:
+- Install Prettier Extension: https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
+- Install ESlint Extension: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint (it requires the npm package 'eslint' to have been installed locally or goblally )
+- Done
+Note: Both extensions have been added as recommended in ./extensions.json
+This will prompt at first time opening of the workspace/project the installation of them.
+
+Those two extensions plus the following config for VSCode
+will trigger the linting error highlightning. Both linting and format
+will be picked from the specific config files, ie: eslintrc &
+prettierrc
+*/
+
+{
+  // Required for TS
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    {
+      "language": "typescript",
+      "autoFix": true
+    },
+    {
+      "language": "typescriptreact",
+      "autoFix": true
+    }
+  ]
+}
