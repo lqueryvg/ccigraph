@@ -29,7 +29,7 @@
     "@types/node": "13.9.1",
     "@types/yaml": "1.2.0",
     "dedent": "0.7.0",
-    "minimist": "1.2.5",
+    "minimist": "1.2.6",
     "yaml": "1.8.2"
   },
   "devDependencies": {
